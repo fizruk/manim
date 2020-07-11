@@ -86,6 +86,7 @@ def dvi_to_svg(dvi_file, regen_if_exists=False):
     if not os.path.exists(result):
         commands = [
             "dvisvgm",
+            "--libgs='/usr/local/lib/libgs.dylib'", # line added in order to convert DVI to SVG with TikZ objects
             "\"{}\"".format(dvi_file),
             "-n",
             "-v",
